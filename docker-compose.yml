@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    container_name: blog_db
+    environment:
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
+      - POSTGRES_DB=${PG_DB_NAME}
+    ports:
+      - ${DOCKER_PG_EXTERNAL}:5432
+  app:
+    container_name: blog_app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - ${DOCKER_APP_EXTERNAL}:${PORT}
+      - "8080:8080"
+    volumes:
+      - ./:/home/node/app
+    depends_on:
+      - db
+    working_dir: /home/node/app
+    command: npm run dev
