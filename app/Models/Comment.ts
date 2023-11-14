@@ -15,11 +15,11 @@ export default class Comment extends BaseModel {
   @column()
   public user_id: number
 
-  // @belongsTo(() => User)
-  // public user_id: BelongsTo<typeof User>
+  @belongsTo(() => User)
+  public user: BelongsTo<typeof User>
 
-  // @hasOne(() => Comment)
-  // public post_id: HasOne<typeof Comment>
+  @hasOne(() => Comment)
+  public post: HasOne<typeof Comment>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

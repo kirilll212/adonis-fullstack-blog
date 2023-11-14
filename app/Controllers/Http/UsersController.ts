@@ -2,11 +2,14 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
 
 export default class UsersController {
-    async register ({ request, response }: HttpContextContract) {
+    async register ({ request, response, session }: HttpContextContract) {
         const data = request.only(['name', 'email', 'password'])
 
         await User.create(data)
-        response.json({message: 'ok'})
+
+        session.flash({ message: 'Реєстрацію успішно завершено!', type: 'success' })
+
+        return response.redirect('/login')
     }
 
     async login ({ request, response, auth }: HttpContextContract) {
@@ -19,6 +22,6 @@ export default class UsersController {
 
         await auth.use('web').attempt(email, password)
 
-        response.json({message: 'ok'})
+        return response.redirect('/')
     }
 }

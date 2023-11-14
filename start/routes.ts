@@ -24,7 +24,9 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
-Route.post('/reg', 'UsersController.register')
+Route.post('/register', 'UsersController.register')
 Route.post('/login', 'UsersController.login')
 Route.post('/create', 'CommentsController.create').middleware('auth')
 Route.post('/add-post', 'PostsController.addPost').middleware('auth')
+Route.on('/register').render('register')
+Route.on('/login').render('login')

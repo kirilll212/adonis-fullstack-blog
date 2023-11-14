@@ -3,7 +3,6 @@ import { BaseModel, BelongsTo, HasMany, beforeSave, belongsTo, column, hasMany }
 import Post from './Post'
 import Hash from '@ioc:Adonis/Core/Hash'
 import UserRole from './UserRole'
-import Role from './Role'
 import Action from './Action'
 import Token from './Token'
 
@@ -24,7 +23,7 @@ export default class User extends BaseModel {
   public posts: HasMany<typeof Post>
 
   @belongsTo(() => UserRole)
-  public roles: BelongsTo<typeof Role>
+  public roles: BelongsTo<typeof UserRole>
 
   @hasMany(() => Action)
   public actions: HasMany<typeof Action>

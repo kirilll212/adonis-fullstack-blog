@@ -3,8 +3,6 @@ import Comment from 'App/Models/Comment';
 
 export default class CommentsController {
     async create({ request, response, auth }: HttpContextContract) {
-
-        // const { ...data } = request.all()
         const { post_id, content } = request.only(['post_id', 'content'])
 
         const data = {
@@ -14,8 +12,6 @@ export default class CommentsController {
         }
 
         await Comment.create(data)
-
-        // console.log(auth.user?.id);
 
         response.json({ message: 'ok' })
     }
