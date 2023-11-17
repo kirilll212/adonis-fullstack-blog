@@ -21,12 +21,16 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', async ({ view }) => {
-  return view.render('welcome')
+  return view.render('login')
 })
+
+Route.on('/error').render('404')
 
 Route.post('/register', 'UsersController.register')
 Route.post('/login', 'UsersController.login')
 Route.post('/create', 'CommentsController.create').middleware('auth')
 Route.post('/add-post', 'PostsController.addPost').middleware('auth')
+Route.on('/main').render('blog/index')
+Route.on('/blog').render('blog/blog')
 Route.on('/register').render('register')
 Route.on('/login').render('login')
