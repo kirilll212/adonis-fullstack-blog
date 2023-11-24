@@ -15,4 +15,44 @@ export default class PostsController {
 
         response.json('added')
     }
+
+    async index({ view }) {
+        const posts = await Post.query()
+            .select('*')
+            .orderBy('created_at', 'asc')
+            .preload('user')
+            .limit(10)
+            .exec()
+
+        return view.render('blog/blog', {
+            posts
+        })
+    }
+
+    async blog({ view }) {
+        const posts = await Post.query()
+            .select('*')
+            .orderBy('created_at', 'asc')
+            .preload('user')
+            .limit(10)
+            .exec()
+
+        return view.render('blog/index', {
+            posts
+        })
+    }
+
+    async single({ params, view }: HttpContextContract) {        
+
+        const post = await Post.query()
+        .where('id', params.id)
+        .preload('user')
+        .preload('comments', (builder) => {
+            builder.preload('user').orderBy('id', 'desc')
+        })
+        .firstOrFail()
+
+
+        return view.render('blog/single', { post: post.toJSON() })
+    }
 }

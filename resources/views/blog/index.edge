@@ -13,7 +13,7 @@
         </div>
     </div>
 </div>
-{{-- @if(!auth.user) --}}
+@if(!auth.user)
 <section id="main" class="blog-mf sect-pt4 route">
     <main id="main">
 
@@ -112,7 +112,7 @@
 
                 {{-- @if() --}}
                 <div class="row">
-                    {{-- @each(post in posts) --}}
+                    @each(post in posts)
 
                     <div class="col-md-4">
                         <div class="card card-blog">
@@ -127,17 +127,17 @@
                                         <h6 class="category">Travel</h6>
                                     </div>
                                 </div>
-                                {{-- <h3 class="card-title"><a href="/login">{{post.title}}</a></h3> --}}
+                                <h3 class="card-title"><a href="/login">{{post.title}}</a></h3>
                                 <p class="card-description">
 
                                 </p>
                             </div>
                             <div class="card-footer">
                                 <div class="post-author">
-                                    {{-- <a href="/post/{{post.id}}">
+                                    <a href="/post/{{post.id}}">
                                         <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                                        <span class="author">Ivan Shvets</span>
-                                    </a> --}}
+                                        <span class="author">{{ post.user.email }}</span>
+                                    </a>
                                 </div>
                                 <div class="post-date">
                                     <span class="bi bi-clock"></span> 10 min
@@ -145,8 +145,8 @@
                             </div>
                         </div>
                     </div>
-                    {{-- @endeach --}}
-                    {{-- @else --}}
+                    @endeach
+                    @else
                     <section id="about" class="about-mf sect-pt4 route">
                         <div class="container">
                             <div class="row">
@@ -244,11 +244,11 @@
 
 
                             <div class="row">
-                                {{-- @each(post in posts) --}}
+                                @each(post in posts)
                                 <div class="col-md-4">
                                     <div class="card card-blog">
-                                        <div class="card-img">
-                                            {{-- <a href="/post/{{post.id}}"><img class="card-img-top"
+                                        {{--<div class="card-img">
+                                             <a href="/post/{{post.id}}"><img class="card-img-top"
                                                     style="object-fit: cover; height: 230px;"
                                                     src="{{ assetsUrl('uploads/post/'+post.image) }}"
                                                     alt="Responsive image"></a>
@@ -259,19 +259,19 @@
                                                     <h6 class="category">Travel</h6>
                                                 </div>
                                             </div>
-                                            {{-- <h3 class="card-title"><a href="/post/{{post.id}}">{{post.title}}</a>
-                                            </h3> --}}
+                                            <h3 class="card-title"><a href="/post/{{post.id}}">{{post.title}}</a>
+                                            </h3>
                                             <p class="card-description">
 
                                             </p>
                                         </div>
                                         <div class="card-footer">
                                             <div class="post-author">
-                                                {{-- <a href="/post/{{post.id}}">
+                                                <a href="/post/{{post.id}}">
                                                     <img src="assets/img/testimonial-2.jpg" alt=""
                                                         class="avatar rounded-circle">
-                                                    <span class="author">Ivan Shvets</span>
-                                                </a> --}}
+                                                    <span class="author">{{ post.user.email }}</span>
+                                                </a>
                                             </div>
                                             <div class="post-date">
                                                 <span class="bi bi-clock"></span> 10 min
@@ -281,13 +281,13 @@
 
                                 </div>
 
-                                {{-- @endeach --}}
+                                @endeach
 
 
                             </div>
                         </div>
                     </section>
-                    {{-- @endif --}}
+                    @endif
 
                 </div>
                 @endsection

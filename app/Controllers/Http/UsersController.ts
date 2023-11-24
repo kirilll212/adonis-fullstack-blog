@@ -57,6 +57,6 @@ export default class UsersController {
 
         await auth.use('web').attempt(email, password)
 
-        return response.redirect('/blog')
+        return response.redirect('/main')
     }
 }

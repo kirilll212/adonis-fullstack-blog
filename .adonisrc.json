@@ -33,7 +33,7 @@
     },
     {
       "pattern": "resources/views/**/*.edge",
-      "reloadServer": false
+      "reloadServer": true
     }
   ],
   "aceProviders": [

@@ -25,12 +25,14 @@ Route.get('/', async ({ view }) => {
 })
 
 Route.on('/error').render('404')
+Route.on('/add-post').render('forms/createPost')
 
 Route.post('/register', 'UsersController.register')
 Route.post('/login', 'UsersController.login')
 Route.post('/create', 'CommentsController.create').middleware('auth')
 Route.post('/add-post', 'PostsController.addPost').middleware('auth')
-Route.on('/main').render('blog/index')
-Route.on('/blog').render('blog/blog')
+Route.get('/main', 'PostsController.blog')
+Route.get('/blog', 'PostsController.index')
+Route.get('/post/:id', 'PostsController.single')
 Route.on('/register').render('register')
 Route.on('/login').render('login')
