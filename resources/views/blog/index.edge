@@ -120,176 +120,174 @@
                                         {{-- src="{{ assetsUrl('uploads/post/'+post.image) }}"
                                         alt="Responsive image"></a> --}}
                             </div>
-                            <div class="card-body">
-                                <div class="card-category-box">
-                                    <div class="card-category">
-                                        <h6 class="category">Travel</h6>
-                                    </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-category-box">
+                                <div class="card-category">
+                                    <h6 class="category">Travel</h6>
                                 </div>
-                                <h3 class="card-title"><a href="/login">{{post.title}}</a></h3>
-                                <p class="card-description">
-
-                                </p>
                             </div>
-                            <div class="card-footer">
-                                <div class="post-author">
-                                    <a href="/post/{{post.id}}">
-                                        <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                                        <span class="author">{{ post.user.email }}</span>
-                                    </a>
-                                </div>
-                                <div class="post-date">
-                                    <span class="bi bi-clock"></span> 10 min
+                            <h3 class="card-title"><a href="/login">{{post.title}}</a></h3>
+                            <p class="card-description">
+
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="post-author">
+                                <a href="/post/{{post.id}}">
+                                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
+                                    <span class="author">{{ post.user.email }}</span>
+                                </a>
+                            </div>
+                            <div class="post-date">
+                                <span class="bi bi-clock"></span> 10 min
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endeach
+                @else
+                <section id="about" class="about-mf sect-pt4 route">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="box-shadow-full">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-5">
+                                                    <div class="about-img">
+                                                        <img src="assets/img/testimonial-2.jpg"
+                                                            class="img-fluid rounded b-shadow-a" alt="">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="skill-mf">
+                                                <p class="title-s">Skill</p>
+                                                <span>HTML</span> <span class="pull-right">85%</span>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: 85%;"
+                                                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
+                                                </div>
+                                                <span>CSS3</span> <span class="pull-right">75%</span>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: 75%"
+                                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
+                                                </div>
+                                                <span>PHP</span> <span class="pull-right">50%</span>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: 50%"
+                                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
+                                                </div>
+                                                <span>JAVASCRIPT</span> <span class="pull-right">90%</span>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: 90%"
+                                                        aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="about-me pt-4 pt-md-0">
+                                                <div class="title-box-2">
+                                                    <h5 class="title-left">
+                                                        About me
+                                                    </h5>
+                                                </div>
+                                                <p class="lead">
+                                                    Curabitur non nulla sit amet nisl tempus
+                                                    convallis quis ac lectus. Curabitur arcu erat,
+                                                    accumsan id imperdiet et, porttitor at sem.
+                                                    Praesent sapien massa, convallis a pellentesque
+                                                    nec, egestas non nisi. Nulla porttitor accumsan tincidunt.</p>
+                                                <p class="lead">
+                                                    Curabitur non nulla sit amet nisl tempus
+                                                    convallis quis ac lectus. Curabitur arcu erat,
+                                                    accumsan id imperdiet et, porttitor at sem.
+                                                    Praesent sapien massa, convallis a pellentesque
+                                                    nec, egestas non nisi. Nulla porttitor accumsan tincidunt.</p>
+                                                <p class="lead">
+                                                    Curabitur non nulla sit amet nisl tempus
+                                                    convallis quis ac lectus. Curabitur arcu erat,
+                                                    accumsan id imperdiet et, porttitor at sem.
+                                                    Praesent sapien massa, convallis a pellentesque
+                                                    nec, egestas non nisi. Nulla porttitor accumsan tincidunt. </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endeach
-                    @else
-                    <section id="about" class="about-mf sect-pt4 route">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="box-shadow-full">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="row">
-                                                    <div class="col-sm-6 col-md-5">
-                                                        <div class="about-img">
-                                                            <img src="assets/img/testimonial-2.jpg"
-                                                                class="img-fluid rounded b-shadow-a" alt="">
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="skill-mf">
-                                                    <p class="title-s">Skill</p>
-                                                    <span>HTML</span> <span class="pull-right">85%</span>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style="width: 85%;"
-                                                            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                    <span>CSS3</span> <span class="pull-right">75%</span>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style="width: 75%"
-                                                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                    <span>PHP</span> <span class="pull-right">50%</span>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style="width: 50%"
-                                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                    <span>JAVASCRIPT</span> <span class="pull-right">90%</span>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style="width: 90%"
-                                                            aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="about-me pt-4 pt-md-0">
-                                                    <div class="title-box-2">
-                                                        <h5 class="title-left">
-                                                            About me
-                                                        </h5>
-                                                    </div>
-                                                    <p class="lead">
-                                                        Curabitur non nulla sit amet nisl tempus
-                                                        convallis quis ac lectus. Curabitur arcu erat,
-                                                        accumsan id imperdiet et, porttitor at sem.
-                                                        Praesent sapien massa, convallis a pellentesque
-                                                        nec, egestas non nisi. Nulla porttitor accumsan tincidunt.</p>
-                                                    <p class="lead">
-                                                        Curabitur non nulla sit amet nisl tempus
-                                                        convallis quis ac lectus. Curabitur arcu erat,
-                                                        accumsan id imperdiet et, porttitor at sem.
-                                                        Praesent sapien massa, convallis a pellentesque
-                                                        nec, egestas non nisi. Nulla porttitor accumsan tincidunt.</p>
-                                                    <p class="lead">
-                                                        Curabitur non nulla sit amet nisl tempus
-                                                        convallis quis ac lectus. Curabitur arcu erat,
-                                                        accumsan id imperdiet et, porttitor at sem.
-                                                        Praesent sapien massa, convallis a pellentesque
-                                                        nec, egestas non nisi. Nulla porttitor accumsan tincidunt. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                </section>
+                <section id="blog" class="blog-mf sect-pt4 route">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="title-box text-center">
+                                    <a href="/blog">
+                                        <h3 class="title-a">
+                                            Blog
+                                        </h3>
+                                    </a>
+                                    <p class="subtitle-a">
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    </p>
+                                    <div class="line-mf"></div>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <section id="blog" class="blog-mf sect-pt4 route">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <p class="pt-3">Your email: {{auth.user.email}}</p>
-                                    <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="/logout"
-                                            role="button">Logout</a></p>
-                                    <div class="title-box text-center">
-                                        <a href="/blog">
-                                            <h3 class="title-a">
-                                                Blog
-                                            </h3>
-                                        </a>
-                                        <p class="subtitle-a">
-                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+
+
+                        <div class="row">
+                            @each(post in posts)
+                            <div class="col-md-4">
+                                <div class="card card-blog">
+                                    {{--<div class="card-img">
+                                        <a href="/post/{{post.id}}"><img class="card-img-top"
+                                                style="object-fit: cover; height: 230px;"
+                                                src="{{ assetsUrl('uploads/post/'+post.image) }}"
+                                                alt="Responsive image"></a>
+                                    </div> --}}
+                                    <div class="card-body">
+                                        <div class="card-category-box">
+                                            <div class="card-category">
+                                                <h6 class="category">Travel</h6>
+                                            </div>
+                                        </div>
+                                        <h3 class="card-title"><a href="/post/{{post.id}}">{{post.title}}</a>
+                                        </h3>
+                                        <p class="card-description">
+
                                         </p>
-                                        <div class="line-mf"></div>
                                     </div>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                @each(post in posts)
-                                <div class="col-md-4">
-                                    <div class="card card-blog">
-                                        {{--<div class="card-img">
-                                            <a href="/post/{{post.id}}"><img class="card-img-top"
-                                                    style="object-fit: cover; height: 230px;"
-                                                    src="{{ assetsUrl('uploads/post/'+post.image) }}"
-                                                    alt="Responsive image"></a>
-                                        </div> --}}
-                                        <div class="card-body">
-                                            <div class="card-category-box">
-                                                <div class="card-category">
-                                                    <h6 class="category">Travel</h6>
-                                                </div>
-                                            </div>
-                                            <h3 class="card-title"><a href="/post/{{post.id}}">{{post.title}}</a>
-                                            </h3>
-                                            <p class="card-description">
-
-                                            </p>
+                                    <div class="card-footer">
+                                        <div class="post-author">
+                                            <a href="/post/{{post.id}}">
+                                                <img src="assets/img/testimonial-2.jpg" alt=""
+                                                    class="avatar rounded-circle">
+                                                <span class="author">{{ post.user.email }}</span>
+                                            </a>
                                         </div>
-                                        <div class="card-footer">
-                                            <div class="post-author">
-                                                <a href="/post/{{post.id}}">
-                                                    <img src="assets/img/testimonial-2.jpg" alt=""
-                                                        class="avatar rounded-circle">
-                                                    <span class="author">{{ post.user.email }}</span>
-                                                </a>
-                                            </div>
-                                            <div class="post-date">
-                                                <span class="bi bi-clock"></span> 10 min
-                                            </div>
+                                        <div class="post-date">
+                                            <span class="bi bi-clock"></span> 10 min
                                         </div>
                                     </div>
-
                                 </div>
 
-                                @endeach
-
-
                             </div>
+
+                            @endeach
+
+
                         </div>
-                    </section>
-                    @endif
+                    </div>
+                </section>
+                @endif
 
-                </div>
-                @endsection
+            </div>
+            @endsection
