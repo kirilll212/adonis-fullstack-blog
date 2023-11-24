@@ -29,6 +29,7 @@ Route.on('/add-post').render('forms/createPost')
 
 Route.post('/register', 'UsersController.register')
 Route.post('/login', 'UsersController.login')
+Route.get('/logout', 'UsersController.logout')
 Route.post('/create', 'CommentsController.create').middleware('auth')
 Route.post('/add-post', 'PostsController.addPost').middleware('auth')
 Route.get('/main', 'PostsController.blog')

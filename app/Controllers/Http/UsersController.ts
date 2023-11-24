@@ -47,7 +47,7 @@ export default class UsersController {
 
     }
 
-    async login({ request, response, auth }: HttpContextContract) {
+    async login({ request, response, auth, view }: HttpContextContract) {
         const { email, password } = request.all()
         const user = (await User.findBy('email', email))?.toJSON()
 
@@ -57,6 +57,12 @@ export default class UsersController {
 
         await auth.use('web').attempt(email, password)
 
+        await view.render('blog/index', { user })
         return response.redirect('/main')
+    }
+
+    async logout({ response, auth }: HttpContextContract) {
+        await auth.logout()
+        response.redirect('/login')
     }
 }
