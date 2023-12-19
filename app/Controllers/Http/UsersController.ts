@@ -1,6 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { registerValidation, registerValidationMessages } from 'App/Validations/UserRegister';
-import Database from '@ioc:Adonis/Lucid/Database'
 import User from 'App/Models/User'
 
 export default class UsersController {
@@ -13,16 +12,6 @@ export default class UsersController {
                 messages: registerValidationMessages,
                 bail: true,
             });
-
-            const existingUser = await Database.from('users').where('email', email).first();
-
-            if (existingUser) {
-                session.flash({
-                    message: 'Цей email вже використовується',
-                    type: 'danger',
-                });
-                return response.redirect('back');
-            }
 
             await User.create({
                 name,
