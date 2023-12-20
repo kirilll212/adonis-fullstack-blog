@@ -1,6 +1,9 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { registerValidation, registerValidationMessages } from 'App/Validations/UserRegister';
 import User from 'App/Models/User'
+import Token from 'App/Models/Token';
+import jwt from 'jsonwebtoken'
+import Config from '@ioc:Adonis/Core/Config'
 
 export default class UsersController {
     public async register({ request, response, session }: HttpContextContract) {
@@ -37,24 +40,40 @@ export default class UsersController {
     }
 
     async login({ request, response, auth, view }: HttpContextContract) {
-        const { email, password } = request.all()
-        const user = (await User.findBy('email', email))?.toJSON()
-
+        const { email, password, rememberMe } = request.all();
+        const user = await User.findBy('email', email);
+    
         if (!user) {
-            response.json({ message: 'Not found' })
+          return response.json({ message: 'Not found' });
         }
-        
-        await auth.use('web').attempt(email, password)
-        
-        if(email == 'admin@adm.ad' && password == 'admin123qwe') {
-            return response.redirect('/admin')
-        }
+    
+        try {
+          await auth.use('web').attempt(email, password);
+    
+          if (rememberMe) {
+            await Token.generate(user);
+          }
+    
+          if (email === 'admin@adm.ad' && password === 'admin123qwe') {
+            return response.redirect('/admin');
+          }
 
-        await view.render('blog/index', { user })
-        return response.redirect('/main')
-    }
+          const token = jwt.sign({ userId: user.id }, Config.get('app.appKey'), { expiresIn: '7d' });
+    
+          await view.render('blog/index', { user: user.toJSON(), token });
+          response.redirect('/main')
+        } catch (error) {
+          return response.json({ message: 'Invalid credentials' });
+        }
+      }
 
     async logout({ response, auth }: HttpContextContract) {
+        const user = auth.user
+
+        if (user) {
+            await Token.delete(user)
+        }
+
         await auth.logout()
         response.redirect('/login')
     }

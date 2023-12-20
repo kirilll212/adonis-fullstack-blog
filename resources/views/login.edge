@@ -32,10 +32,8 @@
               {{flashMessages.get('message')}}
             </div>
           @endif
-          {{--  {{ inspect(flashMessages.all())  }}  --}}
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <form method="POST" action="/login">
-            {{--  {{ csrfField() }}  --}}
 
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0">Login</p>
@@ -46,7 +44,6 @@
               <input type="email" class="form-control" name="email" id="email">
               <label class="form-label" for="form3Example3">Email address</label>
               <div class="invalid-feedback">
-                {{--  {{getErrorFor('email')}}  --}}
               </div>
             </div>
 
@@ -55,18 +52,16 @@
                <input type="password" name="password" class="form-control" id="password">
               <label class="form-label" for="form3Example4">Password</label>
             <div class="invalid-feedback">
-                {{--  {{getErrorFor('password')}}  --}}
               </div>
             </div>
   
             <div class="d-flex justify-content-between align-items-center">
               <!-- Checkbox -->
               <div class="form-check mb-0">
-                <input type="checkbox" class="form-check-input" id="remember">
+                <input type="checkbox" class="form-check-input" id="remember" name="rememberMe">
                 <label class="form-check-label" for="form2Example3">
                   Remember me
                 </label>
-              
               </div>
             </div>
   

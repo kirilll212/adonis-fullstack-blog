@@ -37,4 +37,8 @@ Route.get('/blog', 'PostsController.index')
 Route.get('/post/:id', 'PostsController.single')
 Route.on('/register').render('register')
 Route.on('/login').render('login')
-Route.on('/admin').render('admin/index')
+
+Route.group(() => {
+  Route.on('/').render('admin/index')
+  Route.on('/posts').render('admin/posts')
+}).prefix('/admin')
