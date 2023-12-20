@@ -61,7 +61,7 @@ export default class UsersController {
           const token = jwt.sign({ userId: user.id }, Config.get('app.appKey'), { expiresIn: '7d' });
     
           await view.render('blog/index', { user: user.toJSON(), token });
-          response.redirect('/main')
+          response.redirect('/')
         } catch (error) {
           return response.json({ message: 'Invalid credentials' });
         }
