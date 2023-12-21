@@ -1,0 +1,49 @@
+@layout('layout/main') 
+@section('content') 
+<div class="content">
+
+  <!-- Default ordering -->
+  <div class="panel panel-flat">
+    <div class="panel-heading">
+      <h5 class="panel-title">Posts</h5>
+      <div class="heading-ele">        
+          <button class="modal-ajax" data-url="/posts/form" class="btn btn-primary">Create</button>
+      </div>
+      <div class="heading">
+        <div id="modal_default" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content"></div>
+          </div>
+        </div>
+      </div>
+      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+        <div>
+          <div class="dataTables_length" id="DataTables_Table_0_length">
+            <b role="presentation"></b>
+            <span class="dropdown-wrapper" aria-hidden="true"></span>
+          </div>
+        </div><div class="datatable-scroll">
+          <table id="customer_data" class="table table-bordered">
+            <thead>
+                <tr role="row">
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Created</th>
+                  <th width="100px">Actions</th>
+                </tr>
+              </thead>              
+          </table>
+        </div>
+      </div>
+    </div>
+  <script>
+    let delet = "Delete"
+    let edit = "Edit"
+    let post = "Post"
+  </script>
+<script src="https://cdn.tiny.cloud/1/t3349wm8jxfh2mrqyd2mfnrm608ttnyliyx5m6kuyf8kl9b1/tinymce/5/tinymce.min.js"></script>
+
+<script src="/assets/posts/js/main.js"></script>
+<script src="/assets/posts/js/index.js"></script>
+
+@endsection

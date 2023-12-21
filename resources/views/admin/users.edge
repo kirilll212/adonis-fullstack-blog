@@ -1,0 +1,38 @@
+@layout('layout/main')
+@section('content')
+			<div class="content">
+	<!-- Default ordering -->
+					<div class="panel panel-flat">
+  <div class="panel-heading">
+    <h5 class="panel-title">Users</h5>
+    <div class="heading-elements">
+      <a class="heading-elements-toggle">
+        <i class="icon-menu"></i>
+      </a>
+    </div>
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <div class="dataTables_length" id="DataTables_Table_0_length">
+        <b role="presentation"></b>
+        <span class="dropdown-wrapper" aria-hidden="true"></span>
+      </div>
+      <div class="datatable-scroll">
+        <table id="customer_data" class="table table-bordered">
+          <thead>
+            <tr role="row">
+              <th>Name</th>
+              <th>Email</th>
+              <th width=100px>Actions</th>  
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <script>
+    var permissions = "{{permissions}}"
+    let delet = "Delte"
+    let edit = "Edit"
+    let user = "User"
+  </script>	
+<script src="/assets/users/js/main.js"></script>
+<script src="/assets/users/js/index.js"></script>
+		@endsection

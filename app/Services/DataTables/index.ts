@@ -28,7 +28,7 @@ export default class DatabaseServices {
           return
         }
 
-        query.orWhereRaw(`LOWER(${column.name}) like ?`, [`%${search.value?.toLowerCase()}%`])
+        query.orWhereRaw(`LOWER((${column.name})::text) like ?`, [`%${search.value?.trim().toLowerCase()}%`])
       })
     }
 

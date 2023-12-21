@@ -17,6 +17,9 @@ export default class Post extends BaseModel {
   public image: string
 
   @column()
+  public name?: string
+
+  @column()
   public user_id: number
 
   @belongsTo(() => User, {

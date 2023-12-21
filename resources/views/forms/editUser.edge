@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="style.css">
+<form method="post" action="/users/{{user.id}}/update" enctype="multipart/form-data">
+  
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form3Example3">Name</label>
+      <input type="text" class="form-control " value="{{user.name}}" name="name" id="name" aria-describedby="emailHelp">
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form3Example3">Email</label>
+      <input type="email" class="form-control " value="{{user.email}}" name="email" id="email" aria-describedby="emailHelp">
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-3">
+        <label class="form-label" for="form3Example4">Password</label>
+      <input type="password" name="password" class="form-control " id="password">
+    </div>
+  
+    <!-- Password confirm input -->
+    <div class="form-outline mb-3">
+        <label class="form-label" for="form3Example4">Confirm Password</label>
+      <input type="password" name="password_confirmation" class="form-control" id="confirm_password">
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
