@@ -20,9 +20,6 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-// Route.get('/', async ({ view }) => {
-//   return view.render('login')
-// })
 
 Route.get('/', 'PostsController.blog').middleware('authCheck')
 
@@ -36,25 +33,32 @@ Route.get('/logout', 'UsersController.logout')
 
 Route.post('/create', 'CommentsController.create').middleware('auth')
 Route.post('/add-post', 'PostsController.addPost').middleware('auth')
+Route.post('/add-role', 'RolesController.store')
 
 Route.post('/posts/:id/update', 'PostsController.update')
 Route.post('/users/:id/update', 'UsersController.update')
+Route.post('/roles/:id/update', 'RolesController.update')
 Route.get('/posts/:id/delete', 'PostsController.delete')
 Route.get('/users/:id/delete', 'UsersController.delete')
+Route.get('/roles/:id/delete', 'RolesController.delete')
 
 Route.get('/blog', 'PostsController.index')
 Route.get('/post/:id', 'PostsController.single')
 
 Route.get('/posts/form', 'PostsController.create')
+Route.get('/roles/form', 'RolesController.create')
 Route.get('/posts/form/:id', 'PostsController.edit')
 Route.get('/users/form/:id', 'UsersController.edit')
+Route.get('/roles/form/:id', 'RolesController.edit')
 
 Route.get('/getPosts', 'PostsController.list')
 Route.get('/getUsers', 'UsersController.list')
+Route.get('/getRoles', 'RolesController.list')
 
 
 Route.group(() => {
   Route.on('/').render('admin/index')
   Route.on('/posts').render('admin/posts')
   Route.on('/users').render('admin/users')
+  Route.on('/roles').render('admin/roles')
 }).prefix('/admin')

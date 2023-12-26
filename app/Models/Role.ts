@@ -9,11 +9,11 @@ export default class Role extends BaseModel {
   @column()
   public name: string
 
-  @column()
-  public permission: string
+  // @column()
+  // public permission: string
 
-  @belongsTo(() => User)
-  public user: BelongsTo<typeof User>
+  // @belongsTo(() => User)
+  // public user: BelongsTo<typeof User>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -21,7 +21,7 @@ export default class Role extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  public static getPermissionList(role: Role) {
-    return role.permission.split(',')
-  }
+  // public static getPermissionList(role: Role) {
+  //   return role.permission.split(',')
+  // }
 }

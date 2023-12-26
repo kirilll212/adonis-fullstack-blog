@@ -1,0 +1,39 @@
+@layout('layout/main')
+@section('content')
+<div class="content">
+ <!-- Default ordering -->
+  <div class="panel panel-flat">
+    <div class="panel-heading">
+      <h5 class="panel-title">Roles</h5>
+      <div class="heading-ele">
+        <button class="modal-ajax" data-url="/roles/form" class="btn btn-primary">Create</button>
+
+      </div>
+      <div class="heading-elements">
+        <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+      </div>
+      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+        <div>
+          <div class="dataTables_length" id="DataTables_Table_0_length">
+            <b role="presentation"></b>
+            <span class="dropdown-wrapper" aria-hidden="true"></span>
+          </div>
+          <div class="datatable-scroll">
+            <table id="customer_data" class="table table-bordered">
+              <thead>
+                <tr role="row">
+                  <th>№</th>
+                  <th>Name</th>
+                  <th width=100px>Actions</th>
+                </tr>
+              </thead>
+          </div>
+        </div>
+        <script>
+         let delet = "Delete"
+         let edit = "Edit"
+         let role = "Role"
+        </script>
+        <script src="/assets/roles/js/main.js"></script>
+        <script src="/assets/roles/js/index.js"></script>
+        @endsection
