@@ -49,6 +49,8 @@ Route.get('/posts/form', 'PostsController.create')
 Route.get('/roles/form', 'RolesController.create')
 Route.get('/posts/form/:id', 'PostsController.edit')
 Route.get('/users/form/:id', 'UsersController.edit')
+Route.get('/users/form/editRoles/:id', 'AdminsController.edit')
+Route.get('/users/form/createRoles/:id', 'AdminsController.create')
 Route.get('/roles/form/:id', 'RolesController.edit')
 
 Route.get('/getPosts', 'PostsController.list')

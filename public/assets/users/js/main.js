@@ -25,6 +25,18 @@ const table = $('#customer_data').DataTable({
               </li>`
           )
 
+          actions.push(
+            ` <li>
+               <a href="#" class="modal-ajax" data-toggle="modal" data-target="#modal_edit" data-url="/users/form/editRoles/${data.id}">${roles}</a>
+              </li>`
+          )
+
+          actions.push(
+            ` <li>
+               <a href="#" class="modal-ajax" data-toggle="modal" data-target="#modal_edit" data-url="/users/form/createRoles/${data.id}">${create}</a>
+              </li>`
+          )
+
         return `<ul class="icons-list">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
