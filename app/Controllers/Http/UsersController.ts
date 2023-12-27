@@ -58,6 +58,8 @@ export default class UsersController {
         return response.redirect('/admin')
       }
 
+      await auth.use('web').isLoggedIn
+
       const token = jwt.sign({ userId: user.id }, Config.get('app.appKey'), { expiresIn: '7d' })
 
       await view.render('blog/index', { user: user.toJSON(), token })
