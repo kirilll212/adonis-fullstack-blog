@@ -10,7 +10,7 @@ export default class UserRole extends BaseModel {
   public user_id: number
 
   @column()
-  public role: number
+  public role_id: number
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>

@@ -1,12 +1,12 @@
-<form method="post" action='/admin/usersRole/{{user.id}}' enctype="multipart/form-data">
-   <label for="title">Roles</label><br>
+<form method="post" action='/users/editUsersRole/{{user_id}}?_method=PUT' enctype="multipart/form-data">
+    <input type="hidden" name="user_id" value="{{ user_id }}">
+     <label for="title">Roles</label>
     <div class="form-group">
         <ul class="form-group">
-      @each(role in roles)
-        <input type="checkbox" class="switchery" name="role" value="{{role.id}}">
-        <label for="role">{{role.name}}</label><br>
+     @each(role in roles)
+        <label for="role"><input type="checkbox" class="switchery" name="role" value="{{role.id}}" {{user_roles.includes(role.id) ? 'checked' : ''}}> {{role.name}}</label><br>
       @endeach
-      </ul>
+    </ul>
     </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
