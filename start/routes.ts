@@ -37,7 +37,7 @@ Route.post('/add-role', 'RolesController.store')
 
 Route.post('/posts/:id/update', 'PostsController.update')
 Route.post('/users/:id/update', 'UsersController.update')
-Route.post('/roles/:id/update', 'RolesController.update')
+Route.post('/roles/update/:id', 'RolesController.update')
 Route.get('/posts/:id/delete', 'PostsController.delete')
 Route.get('/users/:id/delete', 'UsersController.delete')
 Route.get('/roles/:id/delete', 'RolesController.delete')

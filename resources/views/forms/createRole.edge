@@ -4,12 +4,12 @@
       <label for="title">Name</label>
       <input required type="text" class="form-control" name="name" id="name">
     </div>
-    {{--  <div class="form-group">
+    <div class="form-group">
        <label for="title">Actions</label><br>
       @each(permission in permissions)
-        <label > <input type="checkbox" name="permission" value= "{{permission.key}}">{{antl.formatMessage('permission.'+permission.key)}}</label><br>
+        <label > <input type="checkbox" name="permission" value= "{{permission.key}}">{{'permission.'+permission.key}}</label><br>
       @endeach
-    </div>  --}}
+    </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
   <button type="submit" class="btn btn-primary">Save</button>

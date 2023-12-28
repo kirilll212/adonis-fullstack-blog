@@ -1,13 +1,25 @@
-<form method="post" action="/roles/{{role.id}}/update" enctype="multipart/form-data">
+<form method="post" action="/roles/update/{{role.id}}?_method=PUT" enctype="multipart/form-data">
 
-    <div class="form-group">
-      <label for="title">Name</label>
-      <input required type="text" class="form-control" value="{{role.name}}" name="name" id="name">
-    </div>
-    
-    </div>
-  <div class="modal-footer">
-  <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-  <button type="submit" class="btn btn-primary">Save</button>
+  <div class="form-group">
+    <label for="title">Roles</label>
+    <input required type="text" class="form-control" value="{{role.name}}" name="name" id="name">
+  </div>
+  <label for="title">Actions</label><br>
+  <ul class="form-group">
+    @each(permission in permissions) 
+    <li>
+      <label> <input type="checkbox" name="permission"  class="switchery" value= "{{permission.key}}" {{actions.includes(permission.key) ? 'checked' : ''}}>
+        {{'permission.'+permission.key}}
+      </label><br>
+     </li>           
+    @endeach
+  </ul>
+  </div>
+<div class="modal-footer">
+<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary">Save</button>
 </div>
 </form>
+
+
+

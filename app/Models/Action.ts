@@ -9,6 +9,9 @@ export default class Action extends BaseModel {
   @column()
   public role_id: number
 
+  @column()
+  public actions: string
+
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
 
