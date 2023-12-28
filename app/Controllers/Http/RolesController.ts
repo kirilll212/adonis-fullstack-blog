@@ -61,9 +61,12 @@ export default class RolesController {
   async update({ params, request, response }: HttpContextContract) {
     const data = request.only(['name'])
     const role = await Role.findBy('id', params.id)
-
+    const { permission } = request.only(['permission'])
+    
     role?.merge({ ...data })
     await role?.save()
+    await Action.query().where({ role_id: params.id }).delete()
+    await Action.createMany(permission.map((element) => ({ role_id: params.id, actions: element })))
 
     return response.redirect('/admin/roles')
   }
