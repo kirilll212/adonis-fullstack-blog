@@ -1,4 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { BaseModel } from '@ioc:Adonis/Lucid/Orm'
 import Action from 'App/Models/Action'
 import Role from 'App/Models/Role'
 import DatabaseServices from 'App/Services/DataTables'
@@ -26,7 +27,13 @@ export default class RolesController {
 
     const result = await databaseServices.result()
 
-    response.ok(result)
+    response.ok({
+      draw: request.input('draw'),
+      recordsTotal: result.recordsTotal,
+      recordsFiltered: result.recordsFiltered,
+      data: result.data.map((item) => (item instanceof BaseModel && typeof item.toJSON === 'function' ? item.toJSON() : item))
+    })
+    
   }
 
   async create({ view }) {
